@@ -1,0 +1,165 @@
+extends layout
+
+block content
+    button.btn.btn-round(data-toggle='modal', data-target='#loginModal')
+        | Login
+        i.material-icons assignment
+    button.btn.btn-round(data-toggle='modal', data-target='#signupModal')
+        i.material-icons assignment
+        |         SignUp
+    #signupModal.modal.fade(tabindex='-1', role='dialog')
+        .modal-dialog.modal-signup(role='document')
+            .modal-content
+                .card.card-signup.card-plain
+                    .modal-header
+                        h5.modal-title.card-title Register
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                            i.material-icons clear
+                    .modal-body
+                            // div class="col-md-5 mr-auto"
+                            form(action='/users/login',method='POST')
+                                .card-body
+                                    .form-group
+                                        .input-group
+                                            .input-group-prepend
+                                                .input-group-text
+                                                    i.material-icons face
+                                            input.form-control(type='text', placeholder='First Name...')
+                                    .form-group
+                                        .input-group
+                                            .input-group-prepend
+                                                .input-group-text
+                                                    i.material-icons email
+                                            input.form-control(type='text', placeholder='Email...')
+                                    .form-group
+                                        .input-group
+                                            .input-group-prepend
+                                                .input-group-text
+                                                    i.material-icons lock_outline
+                                            input.form-control(type='password', placeholder='Password...')
+                                .modal-footer.justify-content-center
+                                    a.btn.btn-primary.btn-round(href='/') Get Started
+                            // /div
+
+    #loginModal.modal.fade(tabindex='-1', role='')
+        .modal-dialog.modal-login(role='document')
+            .modal-content
+                .card.card-signup.card-plain
+                    .modal-header
+                        .card-header.card-header-primary.text-center
+                            button.close(type='button', data-dismiss='modal', aria-hidden='true')
+                                i.material-icons clear
+                            h4.card-title Log in
+                            .social-line
+                                a.btn.btn-just-icon.btn-link.btn-white(href='#pablo')
+                                    i.fa.fa-facebook-square
+                                a.btn.btn-just-icon.btn-link.btn-white(href='#pablo')
+                                    i.fa.fa-twitter
+                                    .ripple-container
+                                a.btn.btn-just-icon.btn-link.btn-white(href='#pablo')
+                                    i.fa.fa-google-plus
+                    .modal-body
+                        form.form(method='', action='')
+                            p.description.text-center Or Be Classical
+                            .card-body
+                                .form-group.bmd-form-group
+                                    .input-group
+                                        .input-group-prepend
+                                            .input-group-text
+                                                i.material-icons face
+                                        input.form-control(type='text', placeholder='First Name...')
+                                .form-group.bmd-form-group
+                                    .input-group
+                                        .input-group-prepend
+                                            .input-group-text
+                                                i.material-icons email
+                                        input.form-control(type='text', placeholder='Email...')
+                                .form-group.bmd-form-group
+                                    .input-group
+                                        .input-group-prepend
+                                            .input-group-text
+                                                i.material-icons lock_outline
+                                        input.form-control(type='password', placeholder='Password...')
+                    .modal-footer.justify-content-center
+                        a.btn.btn-primary.btn-link.btn-wd.btn-lg(href='#pablo') Get Started
+    .page-header.header-filter.clear-filter(data-parallax='true', style="background-image: url('./assets/img/bg2.jpg');")
+        .container
+            .row
+                .col-md-8.ml-auto.mr-auto
+                    .brand
+                        h1 Restaurants Guildance
+                        h3 Top Restaurants Guildance in Bristol for You.
+    .main.main-raised
+        .section.section-basic
+            .container
+                #app
+                    .row
+                        .col-md-4
+                            ul.nav.nav-pills.nav-pills-info.flex-column
+                                li.nav-item
+                                    a.nav-link.active(href='#tab1', data-toggle='tab') Chinese
+                                li.nav-item
+                                    a.nav-link(href='#tab2', data-toggle='tab') Janpanese
+                                li.nav-item
+                                    a.nav-link(href='#tab3', data-toggle='tab') Korean
+                        .col-md-8
+                            .tab-content
+                                #tab1.tab-pane.active
+                                    .row
+                                        .product-col-1.col-md-4
+                                            .img.img-raised.col-md-12
+                                                img(src='assets/img/bg2.jpg')
+                                                button.btn.btn-default(type='button', v-on:click='torolink') ToroNoodleBar
+                                            br
+                                            .img.img-raised.col-md-12
+                                                img(src='assets/img/bg3.jpg')
+                                                button.btn.btn-default(type='button', v-on:click='torolink') ToroNoodleBar
+                                            .break.col-md-12
+                                                br
+                                        .product-col-3.col-md-4
+                                            .img.img-raised.col-md-12
+                                                img(src='assets/img/bg2.jpg')
+                                                button.btn.btn-default(type='button', v-on:click='torolink') ToroNoodleBar
+                                            br
+                                            .img.img-raised.col-md-12
+                                                img(src='assets/img/bg3.jpg')
+                                                button.btn.btn-default(type='button', v-on:click='torolink') ToroNoodleBar
+                                        .product-col-2.col-md-4
+                                            .img.img-raised.col-md-12
+                                                img(src='assets/img/bg2.jpg')
+                                                button.btn.btn-default(type='button', v-on:click='torolink') ToroNoodleBar
+                                            br
+                                            .img.img-raised.col-md-12
+                                                img(src='assets/img/bg3.jpg')
+                                                button.btn.btn-default(type='button', v-on:click='torolink') ToroNoodleBar
+                                #tab2.tab-pane
+                                    .product-info-2
+                                        button.btn.btn-default(type='button', v-on:click='perkorlink') Per&Kor
+                                #tab3.tab-pane
+                                    .product-info-1
+                                        button.btn.btn-default(type='button', v-on:click='noalink') Noa
+
+    #components-demo
+        button-counter
+    script(src='https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js')
+    script(src='https://unpkg.com/vue')
+    script(src='https://unpkg.com/vue-material')
+    script(src='main.js')
+    script(src='counter.js')
+    // Core JS Files
+    script(src='assets/js/core/jquery.min.js', type='text/javascript')
+    script(src='assets/js/core/popper.min.js', type='text/javascript')
+    script(src='assets/js/core/bootstrap-material-design.min.js', type='text/javascript')
+    script(src='assets/js/plugins/moment.min.js')
+    // Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker
+    script(src='assets/js/plugins/bootstrap-datetimepicker.js', type='text/javascript')
+    // Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/
+    script(src='assets/js/plugins/nouislider.min.js', type='text/javascript')
+    // Google Maps Plugin
+    script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE')
+    // Place this tag in your head or just before your close body tag.
+    script(async='', defer='', src='https://buttons.github.io/buttons.js')
+    // Control Center for Material Kit: parallax effects, scripts for the example pages etc
+    script(src='assets/js/material-kit.js?v=2.0.5', type='text/javascript')
+    // Plugin for Sharrre btn
+    script(src='./assets/js/plugins/jquery.sharrre.js', type='text/javascript')
